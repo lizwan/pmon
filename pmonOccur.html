@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>
+      Google Visualization API Sample
+    </title>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {packages: ['corechart']});
+    </script>
+    <script type="text/javascript">
+      function drawVisualization() {
+        // Some raw data (not necessarily accurate)
+  var data = google.visualization.arrayToDataTable([
+    ['Date', 'SPN 키워드등록', 'SPN 키워드수정', 'SPN 카테고리등록', 'SPN 카테고리수정', 'KSP 키워드등록', 'KSP 키워드수정', '총건']
+    ,['02/12(수)',  14494,      3217,         12029,      97, 36280,             2498,          (14494+3217+12029+97+36280+2498)  ]
+    ,['[배치전환]\n02/13(목)',  51297,      5102,        7975,      9238, 34428,             2638,    (51297+5102+7975+9238+34428+2638)       ]
+    ,['02/14(금)',  17107,      39622,        10153,             22750,           10381,      3284,(17107+39622+10153+22750+10381+3284)]
+    ,['02/15(토)',  14060,      31530,        23499,             12153,           0,      0,(14060+31530+23499+12153+0+0)]
+    ,['02/16(일)',  3244,      14863,         3731,             5033,          0,      0,(3244+14863+3731+5033+0+0)]
+    ,['02/17(월)',  3700,      29560,         3743,             2181,          20294,      4689,(3700+29560+3743+2181+20294+4689)]
+    ,['02/18(화)',  8800,      57846,         9876,             18976,          27859,      2799,(8800+57846+9876+18976+27859+2799)]
+    ,['02/19(수)',  15333,      50282,         5147,             19164,          27592,      3200,(15333+50282+5147+19164+27592+3200)]
+    ,['02/20(목)',  11883,      61100,         7670,             22234,          28875,      2987,(11883+61100+7670+22234+28875+2987)]
+    ,['02/21(금)',  16731,      73137,         13468,             21115,          30594,      2865,(16731+73137+13468+21115+30594+2865)]
+    ,['02/22(토)',  11404,      61911,         7911,             13637,          0,      0,(11404+61911+7911+13637+0+0)]
+    ,['02/23(일)',  3804,      57695,         4339,             5313,          0,      0,(16731+73137+13468+21115+30594+2865)]
+    ,['02/24(월)',  26646,      5238,         2325,             37626,          3175,      4486,(26646+5238+2325+37626+3175+4486)]
+  ]);
+
+        var options = {
+          title : 'PMON 발생량 추이',
+          vAxis: {title: "발생량"},
+          hAxis: {title: "Date"},
+          seriesType: "bars",
+		  series: {6: {type: "line"}}
+        };
+
+        var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+      google.setOnLoadCallback(drawVisualization);
+    </script>
+  </head>
+  <body>
+    <div id="chart_div" style="width: 1300px; height: 800px;"></div>
+  </body>
+</html>
